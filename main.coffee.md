@@ -4,7 +4,9 @@ Size
 A simple 2d extent.
 
     Size = (width, height) ->
-      if typeof width is "object"
+      if Array.isArray(width)
+        [width, height] = width
+      else if typeof width is "object"
         {width, height} = width
 
       width: width
@@ -12,6 +14,9 @@ A simple 2d extent.
       __proto__: Size.prototype
 
     Size.prototype =
+      copy: ->
+        Size(this)
+
       scale: (scalar) ->
         Size(@width * scalar, @height * scalar)
 
@@ -28,5 +33,8 @@ A simple 2d extent.
         [0...@height].forEach (y) ->
           [0...@width].forEach (x) ->
             iterator(x, y)
+
+      inverse: ->
+        Size(1/@width, 1/@height)
 
     module.exports = Size
