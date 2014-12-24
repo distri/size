@@ -62,7 +62,7 @@ Size.prototype =
     )
 
   each: (iterator) -&gt;
-    [<span class="number">0.</span>..<span class="property">@height</span>].forEach (y) -&gt;
+    [<span class="number">0.</span>..<span class="property">@height</span>].forEach (y) =&gt;
       [<span class="number">0.</span>..<span class="property">@width</span>].forEach (x) -&gt;
         iterator(x, y)
 
