@@ -30,7 +30,7 @@ A simple 2d extent.
         )
 
       each: (iterator) ->
-        [0...@height].forEach (y) ->
+        [0...@height].forEach (y) =>
           [0...@width].forEach (x) ->
             iterator(x, y)
 
