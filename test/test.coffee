@@ -29,3 +29,12 @@ describe "Size", ->
       total += 1
 
     assert.equal total, 20
+
+  it "should have no iterations when empty", ->
+    size = Size(0, 0)
+    total = 0
+
+    size.each (x, y) ->
+      total += 1
+
+    assert.equal total, 0
